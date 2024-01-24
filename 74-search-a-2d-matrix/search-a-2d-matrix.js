@@ -5,20 +5,20 @@
  */
 var searchMatrix = function (matrix, target) {
     for (let i = 0; i < matrix.length; i++) {
-        let left = 0;
-        let right = matrix[i].length - 1;
+        let low = 0;
+        let high = matrix[i].length - 1;
 
-        while (left <= right) {
-            const mid = Math.floor(left + (right - left) / 2);
+        while (low <= high) {
+            const mid = Math.floor(low + (high - low) / 2);
 
             if (matrix[i][mid] === target) {
                 return true;
             }
 
             if (matrix[i][mid] > target) {
-                right = mid - 1
+                high = mid - 1;
             } else {
-                left = mid + 1
+                low = mid + 1
             }
         }
     }
